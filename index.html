@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edición Especial</title>
+
+<style>
+
+/* =====================================================
+   FUENTES
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    color:white;
+    font-family:'Montserrat',Arial,sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #3d3d3d 0%,
+            #171717 45%,
+            #050505 100%
+        );
+}
+
+
+/* =====================================================
+   PORTADA
+===================================================== */
+
+#cover{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #333 0%,
+            #111 55%,
+            #050505 100%
+        );
+
+    z-index:100;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+}
+
+#cover.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.cover-content{
+    width:min(90%,520px);
+    animation:entrada 1s ease;
+}
+
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.cover-car{
+    font-size:75px;
+    margin-bottom:15px;
+
+    animation:
+        carrito 2s ease-in-out infinite;
+}
+
+@keyframes carrito{
+
+    0%,100%{
+        transform:
+            rotate(-3deg)
+            translateX(0);
+    }
+
+    50%{
+        transform:
+            rotate(3deg)
+            translateX(8px);
+    }
+}
+
+.cover-small{
+    font-size:12px;
+    letter-spacing:4px;
+    color:#aaa;
+    margin-bottom:18px;
+}
+
+.cover-title{
+    margin:0;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:
+        clamp(60px,12vw,105px);
+
+    font-style:italic;
+
+    line-height:.85;
+
+    letter-spacing:-3px;
+
+    transform:skewX(-8deg);
+
+    color:white;
+
+    text-shadow:
+        5px 5px 0 #e51b23,
+        9px 9px 15px rgba(0,0,0,.7);
+}
+
+.cover-subtitle{
+    margin-top:28px;
+
+    color:#ddd;
+
+    font-size:16px;
+}
+
+.open-button{
+
+    margin-top:35px;
+
+    padding:15px 38px;
+
+    border:none;
+    border-radius:50px;
+
+    background:#e51b23;
+
+    color:white;
+
+    font-size:16px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 25px rgba(229,27,35,.4);
+
+    transition:.25s;
+}
+
+.open-button:hover{
+    transform:scale(1.07);
+    background:#ff252d;
+}
+
+
+/* =====================================================
+   CONTENIDO PRINCIPAL
+===================================================== */
+
+#main{
+    min-height:100vh;
+    padding:25px;
+}
+
+.topbar{
+
+    max-width:1050px;
+
+    margin:auto;
+    margin-bottom:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:32px;
+
+    font-style:italic;
+
+    transform:skewX(-8deg);
+
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#e51b23;
+}
+
+.settings-button{
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#222;
+
+    color:#aaa;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    border:1px solid #444;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs{
+
+    max-width:440px;
+
+    margin:
+        0 auto
+        15px;
+
+    display:flex;
+
+    gap:8px;
+}
+
+.tab{
+
+    flex:1;
+
+    padding:10px;
+
+    text-align:center;
+
+    border-radius:8px;
+
+    background:#222;
+
+    color:#aaa;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.tab.active{
+
+    background:#e51b23;
+
+    color:white;
+}
+
+
+/* =====================================================
+   TARJETA
+===================================================== */
+
+.present{
+
+    display:flex;
+    justify-content:center;
+
+    max-width:1050px;
+
+    margin:auto;
+}
+
+.card{
+
+    width:440px;
+
+    min-height:690px;
+
+    background:#f5f5f5;
+
+    color:#111;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        0 0 0 1px rgba(255,255,255,.1);
+
+    animation:
+        aparecerBlister .8s ease;
+}
+
+@keyframes aparecerBlister{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            rotateY(12deg)
+            scale(.95);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            rotateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   CABECERA DEL BLISTER
+===================================================== */
+
+.card-header{
+
+    height:155px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding-top:17px;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b90008,
+            #ed1c24 45%,
+            #850006
+        );
+}
+
+.card-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180%;
+    height:80px;
+
+    top:50px;
+    left:-40%;
+
+    background:
+        rgba(255,255,255,.12);
+
+    transform:rotate(-15deg);
+}
+
+
+/* =====================================================
+   LOGO TIPO HOT WHEELS
+===================================================== */
+
+.brand{
+
+    position:relative;
+
+    z-index:2;
+
+    display:inline-block;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:48px;
+
+    font-weight:900;
+
+    font-style:italic;
+
+    line-height:.9;
+
+    letter-spacing:-2px;
+
+    transform:skewX(-8deg);
+
+    color:white;
+
+    text-shadow:
+        3px 3px 0 #111,
+        6px 6px 0 rgba(0,0,0,.3);
+
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   COLECCIÓN
+===================================================== */
+
+.collection{
+
+    position:relative;
+
+    z-index:2;
+
+    display:inline-block;
+
+    margin-top:7px;
+
+    padding:5px 16px;
+
+    background:#111;
+
+    color:white;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   NOMBRE DEL MODELO
+===================================================== */
+
+.model-name{
+
+    position:absolute;
+
+    z-index:3;
+
+    left:10px;
+    right:10px;
+
+    bottom:8px;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    font-style:italic;
+
+    letter-spacing:-.5px;
+
+    transform:skewX(-6deg);
+
+    text-shadow:
+        2px 2px 0 #111;
+
+    text-transform:uppercase;
+
+    transition:.2s;
+}
+
+
+/* =====================================================
+   BLISTER
+===================================================== */
+
+.blister-zone{
+
+    position:relative;
+
+    height:430px;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #fff 0%,
+            #eee 60%,
+            #d0d0d0 100%
+        );
+}
+
+.plastic{
+
+    position:absolute;
+
+    left:45px;
+    right:45px;
+
+    top:22px;
+    bottom:20px;
+
+    overflow:hidden;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(255,255,255,.85),
+            rgba(255,255,255,.18) 35%,
+            rgba(255,255,255,.5)
+        );
+
+    border:
+        3px solid rgba(255,255,255,.9);
+
+    box-shadow:
+
+        inset 0 0 30px rgba(255,255,255,.9),
+
+        0 12px 25px rgba(0,0,0,.3);
+
+    perspective:1000px;
+}
+
+
+/* brillo plástico */
+
+.plastic::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50px;
+    left:35px;
+
+    width:70px;
+    height:520px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.6),
+            transparent
+        );
+
+    transform:rotate(17deg);
+
+    z-index:20;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   COCHE DE EJEMPLO
+===================================================== */
+
+.car-placeholder{
+
+    position:absolute;
+
+    width:230px;
+    height:85px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-4deg);
+
+    background:
+        var(--car-color,#111);
+
+    border-radius:
+        45px
+        50px
+        25px
+        25px;
+
+    box-shadow:
+
+        inset 0 -12px 0 rgba(0,0,0,.25),
+
+        0 15px 20px rgba(0,0,0,.3);
+}
+
+.car-placeholder::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:48px;
+
+    left:60px;
+    top:-30px;
+
+    background:
+        var(--car-color,#111);
+
+    border-radius:
+        55px
+        55px
+        10px
+        10px;
+}
+
+.car-placeholder::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:32px;
+
+    left:30px;
+    bottom:-15px;
+
+    background:#111;
+
+    border-radius:50%;
+
+    box-shadow:
+        140px 0 0 #111;
+}
+
+
+/* =====================================================
+   FOTO DEL CARRITO
+===================================================== */
+
+.photo-mover{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:270px;
+    height:190px;
+
+    transform:
+
+        translate(
+            calc(-50% + var(--move-x,0px)),
+            calc(-50% + var(--move-y,0px))
+        )
+
+        scale(var(--scale,1));
+
+    display:none;
+
+    z-index:10;
+}
+
+.photo-mover.visible{
+    display:block;
+}
+
+.photo-3d{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    transform:
+
+        rotateY(var(--rotate-y,0deg))
+        rotateZ(var(--rotate-z,0deg));
+
+    transform-style:preserve-3d;
+}
+
+.photo-3d img{
+
+    max-width:100%;
+    max-height:100%;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 15px 9px rgba(0,0,0,.4)
+        );
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+.photo-mover.animado .photo-3d{
+
+    animation:
+        giro3D 4s ease-in-out infinite;
+}
+
+@keyframes giro3D{
+
+    0%{
+
+        transform:
+            rotateY(-18deg)
+            rotateZ(var(--rotate-z,0deg));
+    }
+
+    25%{
+
+        transform:
+            rotateY(0deg)
+            rotateZ(var(--rotate-z,0deg));
+    }
+
+    50%{
+
+        transform:
+            rotateY(18deg)
+            rotateZ(var(--rotate-z,0deg));
+    }
+
+    75%{
+
+        transform:
+            rotateY(0deg)
+            rotateZ(var(--rotate-z,0deg));
+    }
+
+    100%{
+
+        transform:
+            rotateY(-18deg)
+            rotateZ(var(--rotate-z,0deg));
+    }
+}
+
+
+/* =====================================================
+   INFORMACIÓN
+===================================================== */
+
+.info{
+
+    padding:
+        17px 22px;
+
+    background:#fff;
+
+    border-top:
+        1px solid #ddd;
+}
+
+.info-title{
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:30px;
+
+    font-style:italic;
+
+    transform:skewX(-5deg);
+
+    letter-spacing:-.5px;
+
+    text-transform:uppercase;
+}
+
+.info-year{
+
+    margin-top:-2px;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.specs{
+
+    margin-top:9px;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    white-space:pre-line;
+}
+
+
+/* =====================================================
+   REVERSO
+===================================================== */
+
+.reverse{
+
+    display:none;
+
+    min-height:690px;
+
+    padding:
+        40px 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f7f7,
+            #dedede
+        );
+
+    color:#171717;
+}
+
+.reverse-decoration{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.reverse-title{
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:35px;
+
+    font-style:italic;
+
+    transform:skewX(-5deg);
+
+    margin-bottom:25px;
+}
+
+.reverse-text{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    white-space:pre-line;
+}
+
+.signature{
+
+    margin-top:45px;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:23px;
+
+    font-style:italic;
+
+    color:#d71920;
+}
+
+
+/* =====================================================
+   EDITOR
+===================================================== */
+
+#editor{
+
+    display:none;
+
+    max-width:1050px;
+
+    margin:
+        25px auto;
+
+    padding:20px;
+
+    background:#111;
+
+    border:
+        1px solid #333;
+
+    border-radius:12px;
+}
+
+.editor-title{
+
+    margin-bottom:15px;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        'Arial Black',
+        sans-serif;
+
+    font-size:30px;
+
+    font-style:italic;
+}
+
+.editor-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+}
+
+.editor-box{
+
+    padding:13px;
+
+    background:#1d1d1d;
+
+    border-radius:8px;
+}
+
+.editor-box.full{
+
+    grid-column:
+        1 / -1;
+}
+
+.editor-box label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#aaa;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.editor-box input,
+.editor-box textarea{
+
+    width:100%;
+
+    padding:9px;
+
+    background:#292929;
+
+    color:white;
+
+    border:
+        1px solid #444;
+
+    border-radius:6px;
+
+    font-family:inherit;
+}
+
+.editor-box textarea{
+
+    min-height:80px;
+
+    resize:vertical;
+}
+
+
+/* =====================================================
+   CONTROLES DE TIPOGRAFÍA
+===================================================== */
+
+.typography-title{
+
+    margin-bottom:10px;
+
+    color:white;
+
+    font-weight:900;
+
+    font-size:13px;
+}
+
+.range-row{
+
+    margin-top:12px;
+}
+
+.range-row label{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#bbb;
+
+    font-size:11px;
+}
+
+.range-row input{
+
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   BOTONES EDITOR
+===================================================== */
+
+.editor-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:15px;
+}
+
+.editor-button{
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-weight:800;
+}
+
+.red{
+
+    background:#e51b23;
+    color:white;
+}
+
+.dark{
+
+    background:#333;
+    color:white;
+}
+
+.light{
+
+    background:#ddd;
+    color:#111;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    #main{
+        padding:15px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .editor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cover-title{
+        font-size:70px;
+    }
+}
+
+
+/* =====================================================
+   IMPRESIÓN
+===================================================== */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    #cover,
+    .topbar,
+    .tabs,
+    #editor,
+    .settings-button{
+        display:none !important;
+    }
+
+    #main{
+        padding:0;
+    }
+
+    .card{
+        box-shadow:none;
+        margin:auto;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<div id="cover">
+
+    <div class="cover-content">
+
+        <div class="cover-car">
+            🏎️
+        </div>
+
+        <div class="cover-small">
+            UNA PEQUEÑA SORPRESA
+        </div>
+
+        <h1 class="cover-title">
+            EDICIÓN<br>
+            ESPECIAL
+        </h1>
+
+        <div class="cover-subtitle">
+            No es cualquier carrito...
+        </div>
+
+        <button
+            class="open-button"
+            onclick="abrirRegalo()">
+
+            ABRIR 🚗
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PÁGINA PRINCIPAL
+===================================================== -->
+
+<div id="main">
+
+
+    <div class="topbar">
+
+        <div class="logo">
+            HOT <span>WHEELS</span>
+        </div>
+
+        <button
+            class="settings-button"
+            onclick="toggleEditor()">
+
+            ⚙️
+
+        </button>
+
+    </div>
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <div
+            id="frontTab"
+            class="tab active"
+            onclick="showFront()">
+
+            Frente
+
+        </div>
+
+        <div
+            id="reverseTab"
+            class="tab"
+            onclick="showReverse()">
+
+            Reverso
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         BLISTER
+    ================================================= -->
+
+    <div class="present">
+
+        <div class="card">
+
+
+            <!-- FRENTE -->
+
+            <div id="frontSide">
+
+                <div class="card-header">
+
+                    <div
+                        id="brandPreview"
+                        class="brand">
+
+                        HOT WHEELS
+
+                    </div>
+
+
+                    <div
+                        id="collectionPreview"
+                        class="collection">
+
+                        SPECIAL EDITION
+
+                    </div>
+
+
+                    <div
+                        id="modelPreview"
+                        class="model-name">
+
+                        EDICIÓN ESPECIAL
+
+                    </div>
+
+                </div>
+
+
+                <div class="blister-zone">
+
+                    <div class="plastic">
+
+
+                        <div
+                            id="carPlaceholder"
+                            class="car-placeholder"
+                            style="--car-color:#111111;">
+
+                        </div>
+
+
+                        <div
+                            id="photoMover"
+                            class="photo-mover">
+
+                            <div
+                                id="photo3d"
+                                class="photo-3d">
+
+                                <img
+                                    id="carPhoto"
+                                    alt="Carrito">
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div
+                        id="infoTitle"
+                        class="info-title">
+
+                        EDICIÓN ESPECIAL
+
+                    </div>
+
+
+                    <div
+                        id="yearPreview"
+                        class="info-year">
+
+                        2026
+
+                    </div>
+
+
+                    <div
+                        id="specsPreview"
+                        class="specs">
+
+Velocidad: todavía en pruebas
+Motor: edición limitada
+Estado: en perfecto estado
+Edición: 1 de 1
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REVERSO
+            ================================================= -->
+
+            <div
+                id="reverseSide"
+                class="reverse">
+
+
+                <div class="reverse-decoration">
+                    🏎️
+                </div>
+
+
+                <div
+                    id="reverseTitlePreview"
+                    class="reverse-title">
+
+                    Una edición especial
+
+                </div>
+
+
+                <div
+                    id="reverseTextPreview"
+                    class="reverse-text">
+
+Te encontré sin estar buscándote y, entre tantos modelos, terminaste siendo uno de esos que no se encuentran todos los días.
+
+Gracias por hacerme sonreír y por acelerar el corazón cada vez que apareces.
+
+Esta pieza es edición limitada.
+
+                </div>
+
+
+                <div
+                    id="signaturePreview"
+                    class="signature">
+
+                    — Tu copiloto
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         EDITOR
+    ================================================= -->
+
+    <div id="editor">
+
+        <div class="editor-title">
+            ⚙️ Personalizar edición
+        </div>
+
+
+        <div class="editor-grid">
+
+
+            <div class="editor-box">
+
+                <label>
+                    Marca
+                </label>
+
+                <input
+                    id="brandInput"
+                    value="HOT WHEELS">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    Nombre del modelo
+                </label>
+
+                <input
+                    id="modelInput"
+                    value="EDICIÓN ESPECIAL">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    Colección
+                </label>
+
+                <input
+                    id="collectionInput"
+                    value="SPECIAL EDITION">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    Año
+                </label>
+
+                <input
+                    id="yearInput"
+                    value="2026">
+
+            </div>
+
+
+            <!-- FOTO -->
+
+            <div class="editor-box full">
+
+                <label>
+                    📸 Foto del carrito
+                </label>
+
+                <input
+                    id="photoInput"
+                    type="file"
+                    accept="image/*">
+
+            </div>
+
+
+            <!-- COCHE -->
+
+            <div class="editor-box">
+
+                <label>
+                    🎨 Color del carrito
+                </label>
+
+                <input
+                    id="colorInput"
+                    type="color"
+                    value="#111111">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    📏 Tamaño de la foto
+                </label>
+
+                <input
+                    id="sizeRange"
+                    type="range"
+                    min="50"
+                    max="160"
+                    value="100">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    ↔️ Posición horizontal
+                </label>
+
+                <input
+                    id="xRange"
+                    type="range"
+                    min="-100"
+                    max="100"
+                    value="0">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    ↕️ Posición vertical
+                </label>
+
+                <input
+                    id="yRange"
+                    type="range"
+                    min="-100"
+                    max="100"
+                    value="0">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    🔄 Giro 3D
+                </label>
+
+                <input
+                    id="rotateRange"
+                    type="range"
+                    min="-45"
+                    max="45"
+                    value="0">
+
+            </div>
+
+
+            <!-- =================================================
+                 TIPOGRAFÍA
+            ================================================= -->
+
+            <div class="editor-box full">
+
+                <div class="typography-title">
+                    🔤 PERSONALIZAR LETRAS
+                </div>
+
+
+                <div class="range-row">
+
+                    <label>
+
+                        Tamaño del nombre
+
+                        <span id="fontSizeValue">
+                            22px
+                        </span>
+
+                    </label>
+
+                    <input
+                        id="fontSizeRange"
+                        type="range"
+                        min="12"
+                        max="42"
+                        value="22">
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <label>
+
+                        Inclinación
+
+                        <span id="fontSkewValue">
+                            -6°
+
+                        </span>
+
+                    </label>
+
+                    <input
+                        id="fontSkewRange"
+                        type="range"
+                        min="-20"
+                        max="5"
+                        value="-6">
+
+                </div>
+
+
+                <div class="range-row">
+
+                    <label>
+
+                        Espaciado entre letras
+
+                        <span id="letterSpacingValue">
+                            -0.5px
+                        </span>
+
+                    </label>
+
+                    <input
+                        id="letterSpacingRange"
+                        type="range"
+                        min="-5"
+                        max="8"
+                        step=".5"
+                        value="-0.5">
+
+                </div>
+
+            </div>
+
+
+            <!-- ESPECIFICACIONES -->
+
+            <div class="editor-box full">
+
+                <label>
+                    ⚙️ Especificaciones
+                </label>
+
+                <textarea
+                    id="specsInput">Velocidad: todavía en pruebas
+Motor: edición limitada
+Estado: en perfecto estado
+Edición: 1 de 1</textarea>
+
+            </div>
+
+
+            <!-- REVERSO -->
+
+            <div class="editor-box full">
+
+                <label>
+                    💌 Título del reverso
+                </label>
+
+                <input
+                    id="reverseTitleInput"
+                    value="Una edición especial">
+
+            </div>
+
+
+            <div class="editor-box full">
+
+                <label>
+                    Mensaje
+                </label>
+
+                <textarea
+                    id="reverseTextInput">Te encontré sin estar buscándote y, entre tantos modelos, terminaste siendo uno de esos que no se encuentran todos los días.
+
+Gracias por hacerme sonreír y por acelerar el corazón cada vez que apareces.
+
+Esta pieza es edición limitada.</textarea>
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    Firma
+                </label>
+
+                <input
+                    id="signatureInput"
+                    value="— Tu copiloto">
+
+            </div>
+
+
+            <div class="editor-box">
+
+                <label>
+                    Animación
+                </label>
+
+                <label
+                    style="
+                    color:white;
+                    margin-top:10px;
+                    ">
+
+                    <input
+                        id="animationCheck"
+                        type="checkbox"
+                        checked>
+
+                    ✨ Animación 3D
+
+                </label>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="editor-actions">
+
+            <button
+                class="editor-button red"
+                onclick="showFront()">
+
+                Ver frente
+
+            </button>
+
+
+            <button
+                class="editor-button dark"
+                onclick="showReverse()">
+
+                Ver reverso
+
+            </button>
+
+
+            <button
+                class="editor-button light"
+                onclick="window.print()">
+
+                🖨️ Imprimir
+
+            </button>
+
+
+            <button
+                class="editor-button dark"
+                onclick="toggleEditor()">
+
+                Ocultar editor
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   FUNCIÓN CORTA
+===================================================== */
+
+const $ = id =>
+    document.getElementById(id);
+
+
+/* =====================================================
+   PORTADA
+===================================================== */
+
+function abrirRegalo(){
+
+    $("cover")
+        .classList
+        .add("hidden");
+
+}
+
+
+/* =====================================================
+   MOSTRAR / OCULTAR EDITOR
+===================================================== */
+
+function toggleEditor(){
+
+    const editor =
+        $("editor");
+
+
+    if(
+        editor.style.display ===
+        "block"
+    ){
+
+        editor.style.display =
+            "none";
+
+    }else{
+
+        editor.style.display =
+            "block";
+
+        editor.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   ACTUALIZAR TEXTOS
+===================================================== */
+
+function actualizar(){
+
+    $("brandPreview").textContent =
+        $("brandInput").value ||
+        "HOT WHEELS";
+
+
+    $("modelPreview").textContent =
+        $("modelInput").value ||
+        "EDICIÓN ESPECIAL";
+
+
+    $("collectionPreview").textContent =
+        $("collectionInput").value ||
+        "SPECIAL EDITION";
+
+
+    $("yearPreview").textContent =
+        $("yearInput").value ||
+        "2026";
+
+
+    $("infoTitle").textContent =
+        $("modelInput").value ||
+        "EDICIÓN ESPECIAL";
+
+
+    $("specsPreview").textContent =
+        $("specsInput").value;
+
+
+    $("reverseTitlePreview").textContent =
+        $("reverseTitleInput").value;
+
+
+    $("reverseTextPreview").textContent =
+        $("reverseTextInput").value;
+
+
+    $("signaturePreview").textContent =
+        $("signatureInput").value;
+
+}
+
+
+/* =====================================================
+   CAMPOS DE TEXTO
+===================================================== */
+
+[
+    "brandInput",
+    "modelInput",
+    "collectionInput",
+    "yearInput",
+    "specsInput",
+    "reverseTitleInput",
+    "reverseTextInput",
+    "signatureInput"
+
+].forEach(id => {
+
+    $(id).addEventListener(
+        "input",
+        actualizar
+    );
+
+});
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+$("photoInput")
+.addEventListener(
+    "change",
+    function(){
+
+        const file =
+            this.files[0];
+
+        if(!file)
+            return;
+
+
+        const url =
+            URL.createObjectURL(file);
+
+
+        $("carPhoto").src =
+            url;
+
+
+        $("photoMover")
+            .classList
+            .add("visible");
+
+
+        $("carPlaceholder")
+            .style
+            .display =
+            "none";
+
+    }
+);
+
+
+/* =====================================================
+   TAMAÑO
+===================================================== */
+
+$("sizeRange")
+.addEventListener(
+    "input",
+    function(){
+
+        $("photoMover")
+            .style
+            .setProperty(
+                "--scale",
+                this.value / 100
+            );
+
+    }
+);
+
+
+/* =====================================================
+   POSICIÓN X
+===================================================== */
+
+$("xRange")
+.addEventListener(
+    "input",
+    function(){
+
+        $("photoMover")
+            .style
+            .setProperty(
+                "--move-x",
+                this.value + "px"
+            );
+
+    }
+);
+
+
+/* =====================================================
+   POSICIÓN Y
+===================================================== */
+
+$("yRange")
+.addEventListener(
+    "input",
+    function(){
+
+        $("photoMover")
+            .style
+            .setProperty(
+                "--move-y",
+                this.value + "px"
+            );
+
+    }
+);
+
+
+/* =====================================================
+   GIRO 3D
+===================================================== */
+
+$("rotateRange")
+.addEventListener(
+    "input",
+    function(){
+
+        $("photo3d")
+            .style
+            .setProperty(
+                "--rotate-y",
+                this.value + "deg"
+            );
+
+    }
+);
+
+
+/* =====================================================
+   COLOR
+===================================================== */
+
+$("colorInput")
+.addEventListener(
+    "input",
+    function(){
+
+        $("carPlaceholder")
+            .style
+            .setProperty(
+                "--car-color",
+                this.value
+            );
+
+    }
+);
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+$("animationCheck")
+.addEventListener(
+    "change",
+    function(){
+
+        if(this.checked){
+
+            $("photoMover")
+                .classList
+                .add("animado");
+
+        }else{
+
+            $("photoMover")
+                .classList
+                .remove("animado");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   TAMAÑO DE LETRA
+===================================================== */
+
+$("fontSizeRange")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value;
+
+        $("modelPreview")
+            .style
+            .fontSize =
+            value + "px";
+
+
+        $("fontSizeValue")
+            .textContent =
+            value + "px";
+
+    }
+);
+
+
+/* =====================================================
+   INCLINACIÓN
+===================================================== */
+
+$("fontSkewRange")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value;
+
+        $("modelPreview")
+            .style
+            .transform =
+            `skewX(${value}deg)`;
+
+
+        $("fontSkewValue")
+            .textContent =
+            value + "°";
+
+    }
+);
+
+
+/* =====================================================
+   ESPACIADO
+===================================================== */
+
+$("letterSpacingRange")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value;
+
+        $("modelPreview")
+            .style
+            .letterSpacing =
+            value + "px";
+
+
+        $("letterSpacingValue")
+            .textContent =
+            value + "px";
+
+    }
+);
+
+
+/* =====================================================
+   FRENTE
+===================================================== */
+
+function showFront(){
+
+    $("frontSide").style.display =
+        "block";
+
+    $("reverseSide").style.display =
+        "none";
+
+
+    $("frontTab")
+        .classList
+        .add("active");
+
+    $("reverseTab")
+        .classList
+        .remove("active");
+
+}
+
+
+/* =====================================================
+   REVERSO
+===================================================== */
+
+function showReverse(){
+
+    $("frontSide").style.display =
+        "none";
+
+    $("reverseSide").style.display =
+        "block";
+
+
+    $("reverseTab")
+        .classList
+        .add("active");
+
+    $("frontTab")
+        .classList
+        .remove("active");
+
+}
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+actualizar();
+
+</script>
+
+</body>
+</html>
