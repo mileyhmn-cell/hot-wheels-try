@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,10 +8,6 @@
 <title>Edición Especial</title>
 
 <style>
-
-/* =====================================================
-   FUENTES
-===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
@@ -562,9 +559,6 @@ body{
     perspective:1000px;
 }
 
-
-/* brillo plástico */
-
 .plastic::before{
 
     content:"";
@@ -693,13 +687,13 @@ body{
 
         scale(var(--scale,1));
 
-    display:none;
-
     z-index:10;
 }
 
-.photo-mover.visible{
-    display:block;
+.photo-mover.animado .photo-3d{
+
+    animation:
+        giro3D 4s ease-in-out infinite;
 }
 
 .photo-3d{
@@ -737,12 +731,6 @@ body{
 /* =====================================================
    ANIMACIÓN
 ===================================================== */
-
-.photo-mover.animado .photo-3d{
-
-    animation:
-        giro3D 4s ease-in-out infinite;
-}
 
 @keyframes giro3D{
 
@@ -1152,11 +1140,10 @@ body{
 }
 
 </style>
+
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      PORTADA
@@ -1164,37 +1151,38 @@ body{
 
 <div id="cover">
 
-    <div class="cover-content">
+```
+<div class="cover-content">
 
-        <div class="cover-car">
-            🏎️
-        </div>
-
-        <div class="cover-small">
-            UNA PEQUEÑA SORPRESA
-        </div>
-
-        <h1 class="cover-title">
-            EDICIÓN<br>
-            ESPECIAL
-        </h1>
-
-        <div class="cover-subtitle">
-            No es cualquier carrito...
-        </div>
-
-        <button
-            class="open-button"
-            onclick="abrirRegalo()">
-
-            ABRIR 🚗
-
-        </button>
-
+    <div class="cover-car">
+        🏎️
     </div>
 
-</div>
+    <div class="cover-small">
+        UNA PEQUEÑA SORPRESA
+    </div>
 
+    <h1 class="cover-title">
+        EDICIÓN<br>
+        ESPECIAL
+    </h1>
+
+    <div class="cover-subtitle">
+        No es cualquier carrito...
+    </div>
+
+    <button
+        class="open-button"
+        onclick="abrirRegalo()">
+
+        ABRIR 🚗
+
+    </button>
+
+</div>
+```
+
+</div>
 
 <!-- =====================================================
      PÁGINA PRINCIPAL
@@ -1202,190 +1190,201 @@ body{
 
 <div id="main">
 
+```
+<div class="topbar">
 
-    <div class="topbar">
+    <div class="logo">
+        HOT <span>WHEELS</span>
+    </div>
 
-        <div class="logo">
-            HOT <span>WHEELS</span>
-        </div>
+    <button
+        class="settings-button"
+        onclick="toggleEditor()">
 
-        <button
-            class="settings-button"
-            onclick="toggleEditor()">
+        ⚙️
 
-            ⚙️
+    </button>
 
-        </button>
+</div>
+
+
+<!-- TABS -->
+
+<div class="tabs">
+
+    <div
+        id="frontTab"
+        class="tab active"
+        onclick="showFront()">
+
+        Frente
 
     </div>
 
+    <div
+        id="reverseTab"
+        class="tab"
+        onclick="showReverse()">
 
-    <!-- TABS -->
-
-    <div class="tabs">
-
-        <div
-            id="frontTab"
-            class="tab active"
-            onclick="showFront()">
-
-            Frente
-
-        </div>
-
-        <div
-            id="reverseTab"
-            class="tab"
-            onclick="showReverse()">
-
-            Reverso
-
-        </div>
+        Reverso
 
     </div>
 
-
-    <!-- =================================================
-         BLISTER
-    ================================================= -->
-
-    <div class="present">
-
-        <div class="card">
+</div>
 
 
-            <!-- FRENTE -->
+<!-- =================================================
+     BLISTER
+================================================= -->
 
-            <div id="frontSide">
+<div class="present">
 
-                <div class="card-header">
-
-                    <div
-                        id="brandPreview"
-                        class="brand">
-
-                        HOT WHEELS
-
-                    </div>
+    <div class="card">
 
 
-                    <div
-                        id="collectionPreview"
-                        class="collection">
+        <!-- FRENTE -->
 
-                        SPECIAL EDITION
+        <div id="frontSide">
 
-                    </div>
+            <div class="card-header">
 
+                <div
+                    id="brandPreview"
+                    class="brand">
 
-                    <div
-                        id="modelPreview"
-                        class="model-name">
-
-                        EDICIÓN ESPECIAL
-
-                    </div>
+                    HOT WHEELS
 
                 </div>
 
 
-                <div class="blister-zone">
+                <div
+                    id="collectionPreview"
+                    class="collection">
 
-                    <div class="plastic">
-
-
-                        <div
-                            id="carPlaceholder"
-                            class="car-placeholder"
-                            style="--car-color:#111111;">
-
-                        </div>
-
-
-                        <div
-                            id="photoMover"
-                            class="photo-mover">
-
-                            <div
-                                id="photo3d"
-                                class="photo-3d">
-
-                                <img
-                                    id="carPhoto"
-                                    alt="Carrito">
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
+                    SPECIAL EDITION
 
                 </div>
 
 
-                <div class="info">
+                <div
+                    id="modelPreview"
+                    class="model-name">
 
-                    <div
-                        id="infoTitle"
-                        class="info-title">
-
-                        EDICIÓN ESPECIAL
-
-                    </div>
-
-
-                    <div
-                        id="yearPreview"
-                        class="info-year">
-
-                        2026
-
-                    </div>
-
-
-                    <div
-                        id="specsPreview"
-                        class="specs">
-
-Velocidad: todavía en pruebas
-Motor: edición limitada
-Estado: en perfecto estado
-Edición: 1 de 1
-
-                    </div>
+                    EDICIÓN ESPECIAL
 
                 </div>
 
             </div>
 
 
-            <!-- =================================================
-                 REVERSO
-            ================================================= -->
+            <div class="blister-zone">
+
+                <div class="plastic">
+
+
+                    <!-- AUTO OCULTO POR LA FOTO -->
+
+                    <div
+                        id="carPlaceholder"
+                        class="car-placeholder"
+                        style="
+                            --car-color:#111111;
+                            display:none;
+                        ">
+
+                    </div>
+
+
+                    <!-- FOTO FIJA DEL CARRITO -->
+
+                    <div
+                        id="photoMover"
+                        class="photo-mover visible animado">
+
+                        <div
+                            id="photo3d"
+                            class="photo-3d">
+
+                            <img
+                                id="carPhoto"
+                                src="111111111111.jpeg"
+                                alt="Carrito">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <div
+                    id="infoTitle"
+                    class="info-title">
+
+                    EDICIÓN ESPECIAL
+
+                </div>
+
+
+                <div
+                    id="yearPreview"
+                    class="info-year">
+
+                    2026
+
+                </div>
+
+
+                <div
+                    id="specsPreview"
+                    class="specs">
+```
+
+Velocidad: todavía en pruebas
+Motor: edición limitada
+Estado: en perfecto estado
+Edición: 1 de 1
+
+```
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             REVERSO
+        ================================================= -->
+
+        <div
+            id="reverseSide"
+            class="reverse">
+
+
+            <div class="reverse-decoration">
+                🏎️
+            </div>
+
 
             <div
-                id="reverseSide"
-                class="reverse">
+                id="reverseTitlePreview"
+                class="reverse-title">
+
+                Una edición especial
+
+            </div>
 
 
-                <div class="reverse-decoration">
-                    🏎️
-                </div>
-
-
-                <div
-                    id="reverseTitlePreview"
-                    class="reverse-title">
-
-                    Una edición especial
-
-                </div>
-
-
-                <div
-                    id="reverseTextPreview"
-                    class="reverse-text">
+            <div
+                id="reverseTextPreview"
+                class="reverse-text">
+```
 
 Te encontré sin estar buscándote y, entre tantos modelos, terminaste siendo uno de esos que no se encuentran todos los días.
 
@@ -1393,406 +1392,395 @@ Gracias por hacerme sonreír y por acelerar el corazón cada vez que apareces.
 
 Esta pieza es edición limitada.
 
-                </div>
+```
+            </div>
 
 
-                <div
-                    id="signaturePreview"
-                    class="signature">
+            <div
+                id="signaturePreview"
+                class="signature">
 
-                    — Tu copiloto
-
-                </div>
-
+                — Tu copiloto
 
             </div>
 
 
         </div>
 
-    </div>
-
-
-    <!-- =================================================
-         EDITOR
-    ================================================= -->
-
-    <div id="editor">
-
-        <div class="editor-title">
-            ⚙️ Personalizar edición
-        </div>
-
-
-        <div class="editor-grid">
-
-
-            <div class="editor-box">
-
-                <label>
-                    Marca
-                </label>
-
-                <input
-                    id="brandInput"
-                    value="HOT WHEELS">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    Nombre del modelo
-                </label>
-
-                <input
-                    id="modelInput"
-                    value="EDICIÓN ESPECIAL">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    Colección
-                </label>
-
-                <input
-                    id="collectionInput"
-                    value="SPECIAL EDITION">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    Año
-                </label>
-
-                <input
-                    id="yearInput"
-                    value="2026">
-
-            </div>
-
-
-            <!-- FOTO -->
-
-            <div class="editor-box full">
-
-                <label>
-                    📸 Foto del carrito
-                </label>
-
-                <input
-                    id="photoInput"
-                    type="file"
-                    accept="image/*">
-
-            </div>
-
-
-            <!-- COCHE -->
-
-            <div class="editor-box">
-
-                <label>
-                    🎨 Color del carrito
-                </label>
-
-                <input
-                    id="colorInput"
-                    type="color"
-                    value="#111111">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    📏 Tamaño de la foto
-                </label>
-
-                <input
-                    id="sizeRange"
-                    type="range"
-                    min="50"
-                    max="160"
-                    value="100">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    ↔️ Posición horizontal
-                </label>
-
-                <input
-                    id="xRange"
-                    type="range"
-                    min="-100"
-                    max="100"
-                    value="0">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    ↕️ Posición vertical
-                </label>
-
-                <input
-                    id="yRange"
-                    type="range"
-                    min="-100"
-                    max="100"
-                    value="0">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    🔄 Giro 3D
-                </label>
-
-                <input
-                    id="rotateRange"
-                    type="range"
-                    min="-45"
-                    max="45"
-                    value="0">
-
-            </div>
-
-
-            <!-- =================================================
-                 TIPOGRAFÍA
-            ================================================= -->
-
-            <div class="editor-box full">
-
-                <div class="typography-title">
-                    🔤 PERSONALIZAR LETRAS
-                </div>
-
-
-                <div class="range-row">
-
-                    <label>
-
-                        Tamaño del nombre
-
-                        <span id="fontSizeValue">
-                            22px
-                        </span>
-
-                    </label>
-
-                    <input
-                        id="fontSizeRange"
-                        type="range"
-                        min="12"
-                        max="42"
-                        value="22">
-
-                </div>
-
-
-                <div class="range-row">
-
-                    <label>
-
-                        Inclinación
-
-                        <span id="fontSkewValue">
-                            -6°
-
-                        </span>
-
-                    </label>
-
-                    <input
-                        id="fontSkewRange"
-                        type="range"
-                        min="-20"
-                        max="5"
-                        value="-6">
-
-                </div>
-
-
-                <div class="range-row">
-
-                    <label>
-
-                        Espaciado entre letras
-
-                        <span id="letterSpacingValue">
-                            -0.5px
-                        </span>
-
-                    </label>
-
-                    <input
-                        id="letterSpacingRange"
-                        type="range"
-                        min="-5"
-                        max="8"
-                        step=".5"
-                        value="-0.5">
-
-                </div>
-
-            </div>
-
-
-            <!-- ESPECIFICACIONES -->
-
-            <div class="editor-box full">
-
-                <label>
-                    ⚙️ Especificaciones
-                </label>
-
-                <textarea
-                    id="specsInput">Velocidad: todavía en pruebas
-Motor: edición limitada
-Estado: en perfecto estado
-Edición: 1 de 1</textarea>
-
-            </div>
-
-
-            <!-- REVERSO -->
-
-            <div class="editor-box full">
-
-                <label>
-                    💌 Título del reverso
-                </label>
-
-                <input
-                    id="reverseTitleInput"
-                    value="Una edición especial">
-
-            </div>
-
-
-            <div class="editor-box full">
-
-                <label>
-                    Mensaje
-                </label>
-
-                <textarea
-                    id="reverseTextInput">Te encontré sin estar buscándote y, entre tantos modelos, terminaste siendo uno de esos que no se encuentran todos los días.
-
-Gracias por hacerme sonreír y por acelerar el corazón cada vez que apareces.
-
-Esta pieza es edición limitada.</textarea>
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    Firma
-                </label>
-
-                <input
-                    id="signatureInput"
-                    value="— Tu copiloto">
-
-            </div>
-
-
-            <div class="editor-box">
-
-                <label>
-                    Animación
-                </label>
-
-                <label
-                    style="
-                    color:white;
-                    margin-top:10px;
-                    ">
-
-                    <input
-                        id="animationCheck"
-                        type="checkbox"
-                        checked>
-
-                    ✨ Animación 3D
-
-                </label>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="editor-actions">
-
-            <button
-                class="editor-button red"
-                onclick="showFront()">
-
-                Ver frente
-
-            </button>
-
-
-            <button
-                class="editor-button dark"
-                onclick="showReverse()">
-
-                Ver reverso
-
-            </button>
-
-
-            <button
-                class="editor-button light"
-                onclick="window.print()">
-
-                🖨️ Imprimir
-
-            </button>
-
-
-            <button
-                class="editor-button dark"
-                onclick="toggleEditor()">
-
-                Ocultar editor
-
-            </button>
-
-        </div>
 
     </div>
 
 </div>
 
 
-<script>
+<!-- =================================================
+     EDITOR
+================================================= -->
 
-/* =====================================================
-   FUNCIÓN CORTA
-===================================================== */
+<div id="editor">
+
+    <div class="editor-title">
+        ⚙️ Personalizar edición
+    </div>
+
+
+    <div class="editor-grid">
+
+
+        <div class="editor-box">
+
+            <label>
+                Marca
+            </label>
+
+            <input
+                id="brandInput"
+                value="HOT WHEELS">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                Nombre del modelo
+            </label>
+
+            <input
+                id="modelInput"
+                value="EDICIÓN ESPECIAL">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                Colección
+            </label>
+
+            <input
+                id="collectionInput"
+                value="SPECIAL EDITION">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                Año
+            </label>
+
+            <input
+                id="yearInput"
+                value="2026">
+
+        </div>
+
+
+        <div class="editor-box full">
+
+            <label>
+                📸 Foto del carrito
+            </label>
+
+            <input
+                id="photoInput"
+                type="file"
+                accept="image/*">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                🎨 Color del carrito
+            </label>
+
+            <input
+                id="colorInput"
+                type="color"
+                value="#111111">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                📏 Tamaño de la foto
+            </label>
+
+            <input
+                id="sizeRange"
+                type="range"
+                min="50"
+                max="160"
+                value="100">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                ↔️ Posición horizontal
+            </label>
+
+            <input
+                id="xRange"
+                type="range"
+                min="-100"
+                max="100"
+                value="0">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                ↕️ Posición vertical
+            </label>
+
+            <input
+                id="yRange"
+                type="range"
+                min="-100"
+                max="100"
+                value="0">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                🔄 Giro 3D
+            </label>
+
+            <input
+                id="rotateRange"
+                type="range"
+                min="-45"
+                max="45"
+                value="0">
+
+        </div>
+
+
+        <div class="editor-box full">
+
+            <div class="typography-title">
+                🔤 PERSONALIZAR LETRAS
+            </div>
+
+
+            <div class="range-row">
+
+                <label>
+
+                    Tamaño del nombre
+
+                    <span id="fontSizeValue">
+                        22px
+                    </span>
+
+                </label>
+
+                <input
+                    id="fontSizeRange"
+                    type="range"
+                    min="12"
+                    max="42"
+                    value="22">
+
+            </div>
+
+
+            <div class="range-row">
+
+                <label>
+
+                    Inclinación
+
+                    <span id="fontSkewValue">
+                        -6°
+                    </span>
+
+                </label>
+
+                <input
+                    id="fontSkewRange"
+                    type="range"
+                    min="-20"
+                    max="5"
+                    value="-6">
+
+            </div>
+
+
+            <div class="range-row">
+
+                <label>
+
+                    Espaciado entre letras
+
+                    <span id="letterSpacingValue">
+                        -0.5px
+                    </span>
+
+                </label>
+
+                <input
+                    id="letterSpacingRange"
+                    type="range"
+                    min="-5"
+                    max="8"
+                    step=".5"
+                    value="-0.5">
+
+            </div>
+
+        </div>
+
+
+        <div class="editor-box full">
+
+            <label>
+                ⚙️ Especificaciones
+            </label>
+
+            <textarea
+                id="specsInput">Velocidad: todavía en pruebas
+```
+
+Motor: edición limitada
+Estado: en perfecto estado
+Edición: 1 de 1</textarea>
+
+```
+        </div>
+
+
+        <div class="editor-box full">
+
+            <label>
+                💌 Título del reverso
+            </label>
+
+            <input
+                id="reverseTitleInput"
+                value="Una edición especial">
+
+        </div>
+
+
+        <div class="editor-box full">
+
+            <label>
+                Mensaje
+            </label>
+
+            <textarea
+                id="reverseTextInput">Te encontré sin estar buscándote y, entre tantos modelos, terminaste siendo uno de esos que no se encuentran todos los días.
+```
+
+Gracias por hacerme sonreír y por acelerar el corazón cada vez que apareces.
+
+Esta pieza es edición limitada.</textarea>
+
+```
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                Firma
+            </label>
+
+            <input
+                id="signatureInput"
+                value="— Tu copiloto">
+
+        </div>
+
+
+        <div class="editor-box">
+
+            <label>
+                Animación
+            </label>
+
+            <label
+                style="
+                color:white;
+                margin-top:10px;
+                ">
+
+                <input
+                    id="animationCheck"
+                    type="checkbox"
+                    checked>
+
+                ✨ Animación 3D
+
+            </label>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="editor-actions">
+
+        <button
+            class="editor-button red"
+            onclick="showFront()">
+
+            Ver frente
+
+        </button>
+
+
+        <button
+            class="editor-button dark"
+            onclick="showReverse()">
+
+            Ver reverso
+
+        </button>
+
+
+        <button
+            class="editor-button light"
+            onclick="window.print()">
+
+            🖨️ Imprimir
+
+        </button>
+
+
+        <button
+            class="editor-button dark"
+            onclick="toggleEditor()">
+
+            Ocultar editor
+
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<script>
 
 const $ = id =>
     document.getElementById(id);
@@ -1812,7 +1800,7 @@ function abrirRegalo(){
 
 
 /* =====================================================
-   MOSTRAR / OCULTAR EDITOR
+   EDITOR
 ===================================================== */
 
 function toggleEditor(){
@@ -1917,7 +1905,7 @@ function actualizar(){
 
 
 /* =====================================================
-   FOTO
+   CAMBIAR FOTO MANUALMENTE
 ===================================================== */
 
 $("photoInput")
@@ -2217,3 +2205,5 @@ actualizar();
 
 </body>
 </html>
+
+    
